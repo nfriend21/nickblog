@@ -1,8 +1,11 @@
 Nickblog::Application.routes.draw do
  
 resources :users
+resources :sessions
 
 root to: 'users#new' 
+
+get 'login', to: 'sessions#new', as: 'login'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

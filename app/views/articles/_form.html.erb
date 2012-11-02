@@ -1,0 +1,11 @@
+<%= form_for @article do |a| %>
+
+  <%= a.label :title %>
+  <%= a.text_field :title %>
+
+  <%= a.label :body %>
+  <%= a.text_area :body %><br />
+
+  <%= a.submit "Create", class: "btn btn-primary" %>
+
+<% end %>

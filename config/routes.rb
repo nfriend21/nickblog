@@ -1,6 +1,10 @@
 Nickblog::Application.routes.draw do
  
 resources :users
+resources :articles do
+  resources :comments
+end
+
 resources :sessions
 
 root to: 'users#new' 

@@ -3,6 +3,9 @@ Nickblog::Application.routes.draw do
 resources :users
 resources :articles do
   resources :comments
+  collection do
+    post 'update_articles'
+  end
 end
 
 resources :sessions

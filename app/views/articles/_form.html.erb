@@ -4,7 +4,14 @@
   <%= a.text_field :title %>
 
   <%= a.label :body %>
-  <%= a.text_area :body %><br />
+  <%= a.text_area :body %>
+
+  <%#= a.fields_for :tags do |t| %>
+
+  <%= a.label "Tags" %>
+  <%= text_field_tag :name %><br />
+
+  <%# end %>
 
   <%= a.submit "Create", class: "btn btn-primary" %>
 

@@ -6,7 +6,7 @@ $(document).ready(function() {
     	$.ajax(
 			  { type  : 'POST',
 			    url   : '/articles/update_articles/',
-			    data  : $('#sortme').sortable('serialize')
+			    data  : $('#sortme').sortable('serialize') + "&read=false"
 			  } 
 			);
 			console.log($('#sortme').sortable('serialize') + "&read_article=" + $('#sortme2').sortable('serialize'));
@@ -19,9 +19,10 @@ $(document).ready(function() {
     	$.ajax(
 			  { type  : 'POST',
 			    url   : '/articles/update_articles/',
-			    data  : $('#sortme2').sortable('serialize')
+			    data  : $('#sortme2').sortable('serialize') + "&read=true"
 			  } 
 			);
+
 			console.log($('#sortme2').sortable('serialize') + "&album=" + $(this).attr('id'));
     }
 	});

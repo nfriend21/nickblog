@@ -57,8 +57,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-  	@read_articles = Article.where(:read => true)
-    @unread_articles = Article.where(:read => false)
+  	@read_articles = Article.where(:read => true).order('position')
+    @unread_articles = Article.where(:read => false).order('position')
   end
 
   def show
@@ -68,9 +68,9 @@ class ArticlesController < ApplicationController
   end
 
   def update_articles
-    list = params[:album]
+    read_article = params[:read]
     params[:article].each_with_index do |id, index|
-      Article.update_all({read: (list == "sortme2" ? true : false)}, {position: index+1}, {id: id})
+      Article.update_all({read: (read_article == "true" ? true : false), position: index+1}, {id: id})
     end
     render nothing: true
   end
